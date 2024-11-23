@@ -40,7 +40,7 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="<?= base_url('register'); ?>">Create an Account!</a>
+                                <a class="small" href="<?= base_url('register'); ?>">Buat Akun</a>
                             </div>
                         </div>
                     </div>
