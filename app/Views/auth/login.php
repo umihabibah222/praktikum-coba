@@ -40,7 +40,11 @@
                             </form>
                             <hr>
                             <div class="text-center">
+<<<<<<< HEAD
                                 <a class="small" href="<?= base_url('register'); ?>">Buat akun aja</a>
+=======
+                                <a class="small" href="<?= base_url('register'); ?>">Buat akun donk nih lagi lagi</a>
+>>>>>>> df9a92bdb586539d76493ff16a088bbf13385ac8
                             </div>
                         </div>
                     </div>
