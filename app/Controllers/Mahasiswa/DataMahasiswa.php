@@ -47,7 +47,7 @@ class DataMahasiswa extends BaseController
         'alamat' => 'required',
         'tanggal_lahir' => 'required|valid_date',
         'jenis_kelamin' => 'required',
-        'foto' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]'
+        'foto' => 'uploaded[foto]|max_size[foto,20000]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]'
     ])) {
         // Jika validasi gagal, kembali ke halaman form tambah
         return redirect()->to('/data-master-mahasiswa/create')->withInput();
@@ -68,7 +68,7 @@ class DataMahasiswa extends BaseController
     if ($this->request->getFile('foto')->isValid()) {
         $foto = $this->request->getFile('foto');
         $newName = $foto->getRandomName();
-        $foto->move(WRITEPATH . 'uploads/foto', $newName);  // Simpan file di folder uploads/foto
+        $foto->move(FCPATH . 'uploads/foto', $newName);  // Simpan file di folder uploads/foto
         $data['foto'] = $newName;  // Simpan nama file yang baru saja di-upload
     }
 
@@ -108,11 +108,11 @@ public function update($id)
         'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
     ];
 
-    // Proses upload foto jika ada
+    // Proses tampil foto jika ada
     $foto = $this->request->getFile('foto');
     if ($foto && $foto->isValid() && !$foto->hasMoved()) {
         $newName = $foto->getRandomName();
-        $foto->move(WRITEPATH . 'uploads/foto', $newName);
+        $foto->move(FCPATH . 'uploads/foto', $newName);
         $data['foto'] = $newName;
     }
 
